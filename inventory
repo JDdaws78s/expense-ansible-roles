@@ -1,11 +1,11 @@
 [db]
-db.sureshm.online
+172.31.28.131
 
 [frontend]
-frontend.sureshm.online
+172.31.28.131
 
 [backend]
-backend.sureshm.online
+172.31.28.131
 
 [all:vars]
 ansible_user=ec2-user
