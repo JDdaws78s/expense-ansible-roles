@@ -1,0 +1,25 @@
+- name: install nginx
+  dnf:
+    name: nginx
+    state: latest
+
+- name: start and enable nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: app pre requisites
+  import_role:
+    name: common
+    tasks_from: app-pre-req
+  tags:
+    - deployment
+
+
+- name: copy expense conf file
+  template:
+    src: expense.conf.j2
+    dest: /etc/nginx/default.d/expense.conf
+  notify:
+    - nginx restart
